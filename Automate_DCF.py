@@ -7,7 +7,7 @@ import argparse, traceback
 from decimal import Decimal
 
 # input the select location of the FSM package
-from Automating_DCF.Data_Aggregation import *
+from Data_Aggregation import *
 
 
 def DCF(ticker, ev_statement, income_statement, balance_statement, cashflow_statement, discount_rate, forecast, earnings_growth_rate, cap_ex_growth_rate, perpetual_growth_rate):
@@ -64,7 +64,7 @@ def historical_DCF(ticker, years, forecast, discount_rate, earnings_growth_rate,
     income_statement = get_income_statement(ticker = ticker, period = interval, apikey = apikey)['financials']
     balance_statement = get_balance_statement(ticker = ticker, period = interval, apikey = apikey)['financials']
     cashflow_statement = get_cashflow_statement(ticker = ticker, period = interval, apikey = apikey)['financials']
-    enterprise_value_statement = get_EV_statement(ticker = ticker, period = interval, apikey = apikey)['enterpriseValues']
+    enterprise_value_statement = get_EV_statement(ticker = ticker, period = interval, apikey = apikey)['enterpriseValue']
 
     if interval == 'quarter':
         intervals = years * 4
@@ -187,12 +187,12 @@ def enterprise_value(income_statement, cashflow_statement, balance_statement, pe
         PV_flow = flow/((1 + discount)**yr)
         flows.append(PV_flow)
 
-        print(str(int(income_statement[0]['date'][0:4]) + yr) + '  ',
-              '%.2E' % Decimal(PV_flow) + ' | ',
-              '%.2E' % Decimal(ebit) + ' | ',
-              '%.2E' % Decimal(non_cash_charges) + ' | ',
-              '%.2E' % Decimal(cwc) + ' | ',
-              '%.2E' % Decimal(cap_ex) + ' | ')
+        #print(str(int(income_statement[0]['date'][0:4]) + yr) + '  ',
+        #      '%.2E' % Decimal(PV_flow) + ' | ',
+        #      '%.2E' % Decimal(ebit) + ' | ',
+        #      '%.2E' % Decimal(non_cash_charges) + ' | ',
+        #      '%.2E' % Decimal(cwc) + ' | ',
+        #      '%.2E' % Decimal(cap_ex) + ' | ')
 
     NPV_FCF = sum(flows)
     

@@ -57,7 +57,7 @@ def get_EV_statement(ticker, period='annual', apikey=''):
     returns:
         parsed EV statement
     """
-    url = get_api_url('enterprise-value', ticker=ticker, period=period, apikey=apikey)
+    url = get_api_url('enterprise-values', ticker=ticker, period=period, apikey=apikey)
     return get_jsonparsed_data(url)
 
 
@@ -175,6 +175,6 @@ if __name__ == '__main__':
     """ quick test, to use run data.py directly """
 
     ticker = 'AAPL'
-    # apikey = 'BSVSMWUYU3hK9ADyKF5ktgTpTLEEQ2AX'
-    data = get_cashflow_statement(ticker=ticker, apikey=apikey)
+    apikey = 'BSVSMWUYU3hK9ADyKF5ktgTpTLEEQ2AX'
+    data = get_EV_statement(ticker=ticker, apikey=apikey)
     print(data)
