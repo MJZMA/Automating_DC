@@ -7,7 +7,7 @@ import argparse, traceback
 from decimal import Decimal
 
 # input the select location of the FSM package
-from modeling.data import *
+from Automating_DCF.Data_Aggregation import *
 
 
 def DCF(ticker, ev_statement, income_statement, balance_statement, cashflow_statement, discount_rate, forecast, earnings_growth_rate, cap_ex_growth_rate, perpetual_growth_rate):
