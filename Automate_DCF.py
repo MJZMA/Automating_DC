@@ -177,10 +177,10 @@ def enterprise_value(income_statement, cashflow_statement, balance_statement, pe
     for yr in range(1, period+1):    
 
         # increment each value by growth rate
-        ebit = ebit * (1 + (yr * earnings_growth_rate))
-        non_cash_charges = non_cash_charges * (1 + (yr * earnings_growth_rate))
+        ebit = ebit * ((1 + earnings_growth_rate)** yr)
+        non_cash_charges = non_cash_charges * ((1 + earnings_growth_rate)** yr)
         cwc = cwc * 0.7                             # TODO: evaluate this cwc rate? 0.1 annually?
-        cap_ex = cap_ex * (1 + (yr * cap_ex_growth_rate))         
+        cap_ex = cap_ex * ((1 + cap_ex_growth_rate)** yr)     
 
         # discount by WACC
         flow = ulFCF(ebit, tax_rate, non_cash_charges, cwc, cap_ex)
