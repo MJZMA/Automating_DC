@@ -96,7 +96,8 @@ This provides a quick way to dive a bit deeper into what happened in the underly
 
 ### References
 
-[1] http://people.stern.nyu.edu/adamodar/pdfiles/eqnotes/dcfcf.pdf                                                      
-[2] http://people.stern.nyu.edu/adamodar/pdfiles/basics.pdf                                                     
-[3] https://www.oreilly.com/library/view/valuation-techniques-discounted/9781118417607/xhtml/sec30.html                     
-[4] https://www.cchwebsites.com/content/calculators/BusinessValuation.html
+[1] https://github.com/halessi/DCF.git
+[2] http://people.stern.nyu.edu/adamodar/pdfiles/eqnotes/dcfcf.pdf                                                      
+[3] http://people.stern.nyu.edu/adamodar/pdfiles/basics.pdf                                                     
+[4] https://www.oreilly.com/library/view/valuation-techniques-discounted/9781118417607/xhtml/sec30.html                     
+[5] https://www.cchwebsites.com/content/calculators/BusinessValuation.html
