@@ -176,5 +176,5 @@ if __name__ == '__main__':
 
     ticker = 'AAPL'
     apikey = 'BSVSMWUYU3hK9ADyKF5ktgTpTLEEQ2AX'
-    data = get_EV_statement(ticker=ticker, apikey=apikey)
+    data = get_income_statement(ticker=ticker, apikey=apikey)
     print(data)

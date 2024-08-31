@@ -64,7 +64,7 @@ def historical_DCF(ticker, years, forecast, discount_rate, earnings_growth_rate,
     income_statement = get_income_statement(ticker = ticker, period = interval, apikey = apikey)['financials']
     balance_statement = get_balance_statement(ticker = ticker, period = interval, apikey = apikey)['financials']
     cashflow_statement = get_cashflow_statement(ticker = ticker, period = interval, apikey = apikey)['financials']
-    enterprise_value_statement = get_EV_statement(ticker = ticker, period = interval, apikey = apikey)['enterpriseValue']
+    enterprise_value_statement = get_EV_statement(ticker = ticker, period = interval, apikey = apikey)
 
     if interval == 'quarter':
         intervals = years * 4
@@ -134,9 +134,9 @@ def equity_value(enterprise_value, enterprise_value_statement):
         equity_value: (enterprise value - debt + cash)
         share_price: equity value/shares outstanding
     """
-    equity_val = enterprise_value - enterprise_value_statement['+ Total Debt'] 
-    equity_val += enterprise_value_statement['- Cash & Cash Equivalents']
-    share_price = equity_val/float(enterprise_value_statement['Number of Shares'])
+    equity_val = enterprise_value - enterprise_value_statement['addTotalDebt'] 
+    equity_val += enterprise_value_statement['minusCashAndCashEquivalents']
+    share_price = equity_val/float(enterprise_value_statement['numberOfShares'])
 
     return equity_val,  share_price
 
